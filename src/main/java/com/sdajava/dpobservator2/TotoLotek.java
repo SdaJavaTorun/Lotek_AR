@@ -7,11 +7,12 @@ import java.util.Random;
 public class TotoLotek implements Obserwowany {
 
     public TotoLotek(){}
-    private List<Obserwator> obserwators
-            = new ArrayList<>();
+
+    private List<Obserwator> obserwators = new ArrayList<>();
+
     private List<Integer> wyniki = new ArrayList<>();
 
-    public List<Integer> getWyniki() {
+    public List<Integer> getWyniki () {
         return wyniki;
     }
 
@@ -19,7 +20,6 @@ public class TotoLotek implements Obserwowany {
         kolejneLosowanie();
         this.wyniki = wyniki;
         powiadamiajObserwatorow();
-        //wyniki = null;
     }
 
     @Override
@@ -29,6 +29,7 @@ public class TotoLotek implements Obserwowany {
 
     @Override
     public void usunObserwatora(Obserwator obserwator) {
+
         this.obserwators.remove(obserwator);
     }
 

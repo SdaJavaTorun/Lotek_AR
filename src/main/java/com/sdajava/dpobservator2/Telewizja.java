@@ -1,14 +1,14 @@
 package com.sdajava.dpobservator2;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Telewizja implements Media, Obserwator {
+
+    private TotoLotek lotek;
+
     @Override
     public void informuj() {
-        System.out.println("Tu TV");
+        System.out.println("Tu TV - proszę podać wyniki ostaniego losowania");
     }
 
     @Override
@@ -19,15 +19,20 @@ public class Telewizja implements Media, Obserwator {
         }
     }
 
-    private List<Double> wyniki = new ArrayList<>();
-    private TotoLotek lotek;
-
     public Telewizja ( TotoLotek lotek) {
         this.lotek = lotek;
         this.lotek.dodajObserwatora(this);
     }
 
+    @Override
     public void spadam() {
-        System.out.println("Bye TV");
+        System.out.println("\nTV mówi dobranoc");
+        this.lotek.usunObserwatora(this);
+    }
+
+    @Override
+    public void subscribe() {
+        System.out.println("\nTV wchodzi do transmisji");
+        this.lotek.dodajObserwatora(this);
     }
 }

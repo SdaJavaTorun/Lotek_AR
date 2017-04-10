@@ -3,6 +3,9 @@ package com.sdajava.dpobservator2;
 import java.util.List;
 
 public class Internet implements Media, Obserwator {
+
+    private TotoLotek lotek;
+
     @Override
     public void informuj() {
         System.out.println("Tu NET");
@@ -14,15 +17,21 @@ public class Internet implements Media, Obserwator {
         for (Integer i : wyniki)
             System.out.print(i + " ");
     }
-    private int [] wyniki = new int[10];
-    private TotoLotek lotek;
 
     public Internet (TotoLotek lotek) {
         this.lotek = lotek;
         this.lotek.dodajObserwatora(this);
     }
 
+    @Override
     public void spadam() {
-        System.out.println("Bye NET");
+        System.out.println("\nNET mówi nara");
+        this.lotek.usunObserwatora(this);
+    }
+
+    @Override
+    public void subscribe() {
+        System.out.println("\nNET wchodzi do transmisji");
+        this.lotek.dodajObserwatora(this);
     }
 }

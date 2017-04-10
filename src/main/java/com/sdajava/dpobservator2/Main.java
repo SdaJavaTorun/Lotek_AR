@@ -1,23 +1,20 @@
 package com.sdajava.dpobservator2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
 
         TotoLotek totoLotek = new TotoLotek();
 
-        new Internet(totoLotek);
-
+        Internet internet = new Internet(totoLotek);
         Telewizja telewizja = new Telewizja(totoLotek);
 
         totoLotek.setWyniki();
-        totoLotek.usunObserwatora(telewizja);
+        telewizja.spadam();
         totoLotek.setWyniki();
+        internet.spadam();
 
-        //totoLotek.setWyniki(result);
-        //totoLotek.setWyniki(result);
+        telewizja.subscribe();
+        totoLotek.setWyniki();
     }
 }
